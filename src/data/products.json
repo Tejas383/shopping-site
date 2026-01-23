@@ -9,7 +9,7 @@
     "rating": 4.6,
     "reviewsCount": 12450,
     "inStock": true,
-    "color": "Black",
+    "color": "Pink",
     "storage": "128GB",
     "ram": "6GB",
     "screenSize": 6.1,
@@ -18,7 +18,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2024,
     "tags": ["smartphone", "ios"],
-    "image": "https://example.com/images/iphone-15-black.jpg"
+    "image": "https://m.media-amazon.com/images/I/71v2jVh6nIL._AC_UF1000,1000_QL80_.jpg"
   },
   {
     "id": "p002",
@@ -39,7 +39,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2024,
     "tags": ["android", "flagship"],
-    "image": "https://example.com/images/galaxy-s24-silver.jpg"
+    "image": "https://rukminim2.flixcart.com/image/480/640/xif0q/mobile/i/b/d/-original-imahfz2tuqdczpfg.jpeg?q=90"
   },
   {
     "id": "p003",
@@ -60,7 +60,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2024,
     "tags": ["android", "camera"],
-    "image": "https://example.com/images/pixel-8-blue.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy1VMj0ex_Sy0wtmgEuazYlAqZjVb0MCcyJg&s"
   },
   {
     "id": "p004",
@@ -81,7 +81,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2024,
     "tags": ["fast-charge"],
-    "image": "https://example.com/images/oneplus-12-green.jpg"
+    "image": "https://image01-in.oneplus.net/media/202407/04/41900be750fcc2707894c7eb516d1ce8.png"
   },
   {
     "id": "p005",
@@ -102,7 +102,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["budget"],
-    "image": "https://example.com/images/redmi-note-13-black.jpg"
+    "image": "https://rukminim2.flixcart.com/image/480/640/xif0q/mobile/4/7/c/-original-imagzrfwawrb9fzx.jpeg?q=90"
   },
   {
     "id": "p006",
@@ -123,7 +123,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2024,
     "tags": ["ultrabook", "macos"],
-    "image": "https://example.com/images/macbook-air-m3-gray.jpg"
+    "image": "https://www.hoxtonmacs.co.uk/cdn/shop/files/apple-macbook-air-15-inch-macbook-air-15-inch-m3-space-grey-2024-fair-46828889866556.jpg?v=1717589106&width=1080"
   },
   {
     "id": "p007",
@@ -144,7 +144,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2024,
     "tags": ["windows", "ultrabook"],
-    "image": "https://example.com/images/dell-xps-13-silver.jpg"
+    "image": "https://rukminim2.flixcart.com/image/480/480/xif0q/computer/q/l/a/xps-13-thin-and-light-laptop-dell-original-imagp8xfzzemvbqg.jpeg?q=90"
   },
   {
     "id": "p008",
@@ -165,7 +165,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["midrange"],
-    "image": "https://example.com/images/hp-pavilion-15-blue.jpg"
+    "image": "https://m.media-amazon.com/images/I/41aWpX9KeRL.jpg"
   },
   {
     "id": "p009",
@@ -186,7 +186,7 @@
     "warrantyMonths": 36,
     "releaseYear": 2024,
     "tags": ["business"],
-    "image": "https://example.com/images/thinkpad-x1-black.jpg"
+    "image": "https://images-cdn.ubuy.co.in/6342717276a89641766c89e0-lenovo-thinkpad-x1-carbon-14-hd.jpg"
   },
   {
     "id": "p010",
@@ -207,7 +207,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2024,
     "tags": ["gaming"],
-    "image": "https://example.com/images/asus-rog-strix-g16.jpg"
+    "image": "https://dlcdnwebimgs.asus.com/gain/A23D7B7E-46D8-480A-9B68-6063EA9DA7D1/w1000/h732"
   },
   {
     "id": "p011",
@@ -228,7 +228,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["noise-cancelling"],
-    "image": "https://example.com/images/sony-wh-1000xm5-black.jpg"
+    "image": "https://www.sony.co.in/image/6145c1d32e6ac8e63a46c912dc33c5bb?fmt=pjpeg&bgcolor=FFFFFF&bgc=FFFFFF&wid=2515&hei=1320"
   },
   {
     "id": "p012",
@@ -249,7 +249,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2024,
     "tags": ["premium"],
-    "image": "https://example.com/images/bose-qc-ultra-white.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRao8qA87ElqJqGxSTVuZ2oTjmzkQN_vz2OA&s"
   },
   {
     "id": "p013",
@@ -270,7 +270,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["true-wireless"],
-    "image": "https://example.com/images/airpods-pro-2.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVQUoomQRHKJ6Dp9c6MjeNt4wB3usZh-EniA&sjpg"
   },
   {
     "id": "p014",
@@ -291,7 +291,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2022,
     "tags": ["budget"],
-    "image": "https://example.com/images/jbl-tune-760nc-blue.jpg"
+    "image": "https://m.media-amazon.com/images/I/71x1ljuwF8L.jpg"
   },
   {
     "id": "p015",
@@ -312,7 +312,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["design"],
-    "image": "https://example.com/images/nothing-ear-2.jpg"
+    "image": "https://rukminim2.flixcart.com/image/480/640/xif0q/headphone/x/m/v/-original-imagnydghgvy9huf.jpeg?q=90"
   },
   {
     "id": "p016",
@@ -333,7 +333,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2024,
     "tags": ["tablet"],
-    "image": "https://example.com/images/ipad-air-m2-purple.jpg"
+    "image": "https://www.imagineonline.store/cdn/shop/files/iPad_Air_13_M2_Cellular_Purple_PDP_Image_Position_2__en-IN_65b916f4-7d41-49b9-be1c-e5c7a401f999.jpg?v=1759734193&width=823jpg"
   },
   {
     "id": "p017",
@@ -354,7 +354,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["android-tablet"],
-    "image": "https://example.com/images/galaxy-tab-s9-graphite.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAIBK_OYEMxMFtqmPxZUA_-vJh0b-ySDReHg&s"
   },
   {
     "id": "p018",
@@ -375,7 +375,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2022,
     "tags": ["voice-assistant"],
-    "image": "https://example.com/images/amazon-echo-dot-black.jpg"
+    "image": "https://rukminim2.flixcart.com/image/300/300/xif0q/speaker/smart-speaker/a/6/l/b09b917z8d-alexa-original-imah4wy9zzezh5pv.jpeg"
   },
   {
     "id": "p019",
@@ -396,7 +396,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["smartwatch"],
-    "image": "https://example.com/images/apple-watch-series-9-midnight.jpg"
+    "image": "https://www.imagineonline.store/cdn/shop/files/Apple_Watch_Series_9_LTE_45mm_Midnight_Aluminium_Midnight_Sport_Band_PDP_Image_Position-1__en-IN.jpg?v=1759734062"
   },
   {
     "id": "p020",
@@ -417,7 +417,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["android"],
-    "image": "https://example.com/images/galaxy-watch-6-silver.jpg"
+    "image": "https://assets.myntassets.com/w_360,q_50,,dpr_2,fl_progressive,f_webp/assets/images/24435062/2023/8/14/efef82df-ff99-49ca-8655-e14dc1ba97641691985476484SamsungGalaxyWatch6ClassicLTE47mmSilverCompatiblewithAndroid1.jpg"
   },
   {
     "id": "p021",
@@ -438,7 +438,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2022,
     "tags": ["mouse"],
-    "image": "https://example.com/images/logitech-mx-master-3s-graphite.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJTP2Xpzl9gP1uF5qw4JlSH_tfz3obYLnZ-A&s"
   },
   {
     "id": "p022",
@@ -459,7 +459,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["keyboard", "mechanical"],
-    "image": "https://example.com/images/keychron-k-pro-gray.jpg"
+    "image": "https://m.media-amazon.com/images/I/51LUBlM6RqL._AC_UF1000,1000_QL80_.jpg"
   },
   {
     "id": "p023",
@@ -480,7 +480,7 @@
     "warrantyMonths": 36,
     "releaseYear": 2021,
     "tags": ["portable-ssd"],
-    "image": "https://example.com/images/samsung-t7-ssd-blue.jpg"
+    "image": "https://m.media-amazon.com/images/I/81VKxjrWZdL.jpg"
   },
   {
     "id": "p024",
@@ -501,7 +501,7 @@
     "warrantyMonths": 24,
     "releaseYear": 2020,
     "tags": ["usb"],
-    "image": "https://example.com/images/sandisk-ultra-flash-drive-black.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAOIup5jC7Pnib3BS6zMvO7dgDASiSTycUBg&s"
   },
   {
     "id": "p025",
@@ -522,7 +522,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["mirrorless"],
-    "image": "https://example.com/images/canon-eos-r50-black.jpg"
+    "image": "https://www.designinfo.in/wp-content/uploads/2023/08/Canon-EOS-R50-Mirrorless-Camera-with-18-45-1.webp"
   },
   {
     "id": "p026",
@@ -543,7 +543,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2022,
     "tags": ["vlogging"],
-    "image": "https://example.com/images/sony-zv-e10-black.jpg"
+    "image": "https://x.imastudent.com/content/0026730_sony-zv-e10-mirrorless-camera-with-16-50mm-lens-zv-e10l_500.jpeg"
   },
   {
     "id": "p027",
@@ -564,7 +564,7 @@
     "warrantyMonths": 12,
     "releaseYear": 2023,
     "tags": ["smart-tv"],
-    "image": "https://example.com/images/mi-43-4k-tv.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSn4MlmS1Wo76RfVWdnOh-m-7g7PxKxdnlAg&s"
   },
   {
     "id": "p028",
@@ -585,7 +585,7 @@
     "warrantyMonths": 24,
     "releaseYear": 2024,
     "tags": ["oled", "premium"],
-    "image": "https://example.com/images/lg-oled-c3-55.jpg"
+    "image": "https://m.media-amazon.com/images/I/61ksjysee8L._AC_UF1000,1000_QL80_.jpg"
   },
   {
     "id": "p029",
@@ -606,7 +606,7 @@
     "warrantyMonths": 24,
     "releaseYear": 2023,
     "tags": ["vacuum"],
-    "image": "https://example.com/images/dyson-v12-detect.jpg"
+    "image": "https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=500,quality=75/product/dyson-v12-detect-slim-ext-absolute-cordless-portable-vacuum-cleaner-anodised-yellow-with-grey-wand-spacs-02.png"
   },
   {
     "id": "p030",
@@ -627,6 +627,6 @@
     "warrantyMonths": 24,
     "releaseYear": 2022,
     "tags": ["kitchen"],
-    "image": "https://example.com/images/philips-air-fryer-xl.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjF3zjiYqAPLp4Yl1OhTBcyG8X4JOE_tDOlA&s"
   }
 ]

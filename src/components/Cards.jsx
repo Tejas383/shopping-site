@@ -61,11 +61,11 @@ const Cards = ({ cols }) => {
       </Pagination>
 
       <div
-        className="grid  p-3 gap-3 w-full"
+        className="grid p-3 gap-3 w-full"
         style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
       >
         {visibleItems.map((item, index) => (
-          <CardComponent key={index} item={item} />
+          <CardComponent key={index} item={item} cols={cols} />
         ))}
       </div>
     </div>
