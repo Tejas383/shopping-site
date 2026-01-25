@@ -67,7 +67,7 @@ const CardComponent = ({ item, cols }) => {
   }
 
   return (
-    <Card className="shadow-lg shadow-purple-300/30 bg-white text-center ">
+    <Card className="shadow-lg shadow-purple-300/30 bg-white text-center hover:scale-101 transition duration-250 ease-in-out">
       <CardHeader>
         <CardTitle className="text-xl">{name}</CardTitle>
         <img src={image} alt={name} className=" h-50 rounded-md m-auto" />

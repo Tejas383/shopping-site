@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import productsData from "../data/products.json";
 import CardComponent from "./CardComponent.jsx";
 import {
@@ -10,10 +10,33 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-const Cards = ({ cols }) => {
+const Cards = ({ cols, filters }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filters]);
 
-  const totalItems = productsData.length;
+  const filteredData = productsData.filter((product) => {
+    const filterTypes = Object.keys(filters);
+
+    for (let filterType of filterTypes) {
+      const filterObj = filters[filterType];
+      const objectKeys = Object.keys(filterObj);
+
+      for (let objectKey of objectKeys) {
+        if (filterObj[objectKey] === true) {
+          if (product[filterType] !== objectKey) {
+            return false;
+          }
+        }
+      }
+    }
+
+    return true;
+  });
+
+  const totalItems = filteredData.length;
   const itemsPerPage = 10;
 
   const numberOfPages = Math.ceil(totalItems / itemsPerPage);
@@ -21,9 +44,25 @@ const Cards = ({ cols }) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const visibleItems = productsData.slice(startIndex, endIndex);
+  // filters = {
+  //   Category: {
+  //     "Mobile Phone": false,
+  //     Laptop: false,
+  //     HeadPhones: false,
+  //     Tablet: false,
+  //     "Smart Home": false,
+  //     Wearable: false,
+  //     Accessories: false,
+  //     Storage: false,
+  //     Camera: false,
+  //     Television: false,
+  //     "Home Appliance": false,
+  //   },
+  // }
 
-  // console.log(cols);
+
+  const visibleItems = filteredData.slice(startIndex, endIndex);
+
 
   return (
     <div className="w-full">
