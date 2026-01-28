@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import productsData from "../data/products.json";
 import CardComponent from "./CardComponent.jsx";
@@ -9,10 +11,12 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Cards = ({ cols, filters }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  
+  const [selectedCard, setSelectedCard] = useState(null);
+
   useEffect(() => {
     setCurrentPage(1);
   }, [filters]);
@@ -36,7 +40,8 @@ const Cards = ({ cols, filters }) => {
     return true;
   });
 
-  const totalItems = filteredData.length;
+  // const totalItems = filteredData.length;
+  const totalItems = productsData.length;
   const itemsPerPage = 10;
 
   const numberOfPages = Math.ceil(totalItems / itemsPerPage);
@@ -60,9 +65,13 @@ const Cards = ({ cols, filters }) => {
   //   },
   // }
 
+  // const visibleItems = filteredData.slice(startIndex, endIndex);
+  const visibleItems = productsData.slice(startIndex, endIndex);
 
-  const visibleItems = filteredData.slice(startIndex, endIndex);
-
+  const zoomCard = (item) => {
+    console.log(item.id);
+    setSelectedCard(item);
+  };
 
   return (
     <div className="w-full">
@@ -104,9 +113,44 @@ const Cards = ({ cols, filters }) => {
         style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
       >
         {visibleItems.map((item, index) => (
-          <CardComponent key={index} item={item} cols={cols} />
+          <CardComponent
+            key={index}
+            item={item}
+            cols={cols}
+            onClick={() => zoomCard(item)}
+          />
         ))}
       </div>
+
+      <AnimatePresence>
+        {selectedCard && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center bg-black/60"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            onClick={() => setSelectedCard(null)}
+          >
+            <motion.div
+              className="bg-white p-6 rounded-lg max-w-4xl w-full"
+              initial={{ scale: 0.1 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 10 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="mb-4 px-4 py-2 bg-red-500 text-white rounded"
+                onClick={() => setSelectedCard(null)}
+              >
+                Close
+              </button>
+              <CardComponent item={selectedCard} cols={1} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

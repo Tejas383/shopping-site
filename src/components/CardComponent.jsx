@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardAction,
@@ -8,6 +10,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
 
 // {
 //     "id": "p001",
@@ -31,13 +36,14 @@ import { Button } from "@/components/ui/button";
 //     "image": "https://example.com/images/iphone-15-black.jpg"
 //   }
 
-const CardComponent = ({ item, cols }) => {
-  // console.log(item)
+const CardComponent = ({ item, cols, onClick }) => {
   const {
+    id,
     name,
     category,
     brand,
     price,
+    currency,
     rating,
     reviewsCount,
     inStock,
@@ -64,10 +70,13 @@ const CardComponent = ({ item, cols }) => {
       case 4:
         return 1;
     }
-  }
+  };
 
   return (
-    <Card className="shadow-lg shadow-purple-300/30 bg-white text-center hover:scale-101 transition duration-250 ease-in-out">
+    <Card
+      onClick={onClick}
+      className="shadow-lg shadow-purple-300/30 bg-white text-center hover:scale-101 transition duration-250 ease-in-out"
+    >
       <CardHeader>
         <CardTitle className="text-xl">{name}</CardTitle>
         <img src={image} alt={name} className=" h-50 rounded-md m-auto" />
@@ -75,7 +84,9 @@ const CardComponent = ({ item, cols }) => {
       <CardContent>
         <p
           className="grid"
-          style={{ gridTemplateColumns: `repeat(${numCols(cols)}, minmax(0, 1fr))` }}
+          style={{
+            gridTemplateColumns: `repeat(${numCols(cols)}, minmax(0, 1fr))`,
+          }}
         >
           <span>
             <span className="font-semibold">Brand:</span> {brand}
@@ -85,6 +96,14 @@ const CardComponent = ({ item, cols }) => {
           </span>
           <span>
             <span className="font-semibold">Rating:</span> {rating}
+            <Stack spacing={1}>
+              <Rating
+                name="half-rating-read"
+                defaultValue={rating}
+                precision={0.5}
+                readOnly
+              />
+            </Stack>
           </span>
           <span>
             <span className="font-semibold">Color:</span> {color}
