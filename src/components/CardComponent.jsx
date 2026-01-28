@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Card,
@@ -10,6 +10,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
 
 // {
 //     "id": "p001",
@@ -93,6 +96,14 @@ const CardComponent = ({ item, cols, onClick }) => {
           </span>
           <span>
             <span className="font-semibold">Rating:</span> {rating}
+            <Stack spacing={1}>
+              <Rating
+                name="half-rating-read"
+                defaultValue={rating}
+                precision={0.5}
+                readOnly
+              />
+            </Stack>
           </span>
           <span>
             <span className="font-semibold">Color:</span> {color}
