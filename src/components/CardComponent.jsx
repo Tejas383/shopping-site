@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Card,
   CardAction,
@@ -25,6 +26,7 @@ import Stack from "@mui/material/Stack";
 //     "reviewsCount": 12450,
 //     "inStock": true,
 //     "color": "Black",
+//     "colorOptions": ["Pink", "Black", "White", "Blue"],
 //     "storage": "128GB",
 //     "ram": "6GB",
 //     "screenSize": 6.1,
@@ -34,7 +36,7 @@ import Stack from "@mui/material/Stack";
 //     "releaseYear": 2024,
 //     "tags": ["smartphone", "ios"],
 //     "image": "https://example.com/images/iphone-15-black.jpg"
-//   }
+// }
 
 const CardComponent = ({ item, cols, onClick }) => {
   const {
@@ -48,6 +50,7 @@ const CardComponent = ({ item, cols, onClick }) => {
     reviewsCount,
     inStock,
     color,
+    colorOptions,
     storage,
     ram,
     screenSize,
@@ -58,6 +61,8 @@ const CardComponent = ({ item, cols, onClick }) => {
     tags,
     image,
   } = item;
+
+  const [selectedColor, setSelectedColor] = useState("");
 
   const numCols = (cols) => {
     switch (cols) {
@@ -75,40 +80,52 @@ const CardComponent = ({ item, cols, onClick }) => {
   return (
     <Card
       onClick={onClick}
-      className="shadow-lg shadow-purple-300/30 bg-white text-center hover:scale-101 transition duration-250 ease-in-out"
+      className="shadow-lg shadow-purple-300/30 bg-white text-center hover:scale-101 transition duration-250"
     >
       <CardHeader>
         <CardTitle className="text-xl">{name}</CardTitle>
         <img src={image} alt={name} className=" h-50 rounded-md m-auto" />
       </CardHeader>
-      <CardContent>
-        <p
-          className="grid"
-          style={{
-            gridTemplateColumns: `repeat(${numCols(cols)}, minmax(0, 1fr))`,
-          }}
-        >
+      <CardContent className="grid gap-3">
+        <div className="flex justify-between">
           <span>
-            <span className="font-semibold">Brand:</span> {brand}
+            <span className="font-semibold">Brand: </span>{brand}
           </span>
           <span>
-            <span className="font-semibold">Price:</span> {price}
+            <span className="font-semibold">Price: </span>{price}
           </span>
-          <span>
-            <span className="font-semibold">Rating:</span> {rating}
-            <Stack spacing={1}>
-              <Rating
-                name="half-rating-read"
-                defaultValue={rating}
-                precision={0.5}
-                readOnly
-              />
-            </Stack>
+        </div>
+        <div className="flex items-center justify-center">
+          <span className="font-semibold">Rating: </span>
+          <Stack spacing={1}>
+            <Rating
+              name="half-rating-read"
+              defaultValue={rating}
+              precision={0.5}
+              readOnly
+            />
+          </Stack>
+        </div>
+        <span>
+          <span className="font-semibold">Color: </span>
+          <span className="">
+            {colorOptions.map((color) => (
+              <span key={color} className="">
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedColor(color);
+                  }}
+                  className={`rounded-full cursor-pointer border-2 ${
+                    selectedColor === color ? "border-black" : "border-gray-300"
+                  }`}
+                  style={{ backgroundColor: color.toLowerCase() }}
+                  title={color}
+                />
+              </span>
+            ))}
           </span>
-          <span>
-            <span className="font-semibold">Color:</span> {color}
-          </span>
-        </p>
+        </span>
       </CardContent>
       <CardFooter>
         <Button variant="outline" className=" hover:bg-purple-100 w-full">
