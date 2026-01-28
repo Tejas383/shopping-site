@@ -17,31 +17,74 @@ const Cards = ({ cols, filters }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCard, setSelectedCard] = useState(null);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [filters]);
+  // useEffect(() => {
+  //   setCurrentPage(1);
+  // }, [filters]);
+
+  // const filteredData = productsData.filter((product) => {
+  //   const filterTypes = Object.keys(filters);
+
+  //   for (let filterType of filterTypes) {
+  //     const filterObj = filters[filterType];
+  //     const objectKeys = Object.keys(filterObj);
+
+  //     for (let objectKey of objectKeys) {
+  //       if (filterObj[objectKey] === true) {
+  //         if (product[filterType] !== objectKey) {
+  //           return false;
+  //         }
+  //       }
+  //     }
+  //   }
+
+  //   return true;
+  // });
+
+  // filters = {
+  //   category: ["mobilephone", "accessories", "tv"]
+  // }
+  // product = {
+  //   "id": "p001",
+  //   "name": "iPhone 15",
+  //   "category": "Mobile Phone",
+  //   "brand": "Apple",
+  //   "price": 79999,
+  //   "currency": "INR",
+  //   "rating": 4.6,
+  //   "reviewsCount": 12450,
+  //   "inStock": true,
+  //   "color": "Pink",
+  //   "colorOptions": ["Pink", "Black", "White", "Blue"],
+  //   "storage": "128GB",
+  //   "ram": "6GB",
+  //   "screenSize": 6.1,
+  //   "battery": "3279mAh",
+  //   "connectivity": ["5G", "WiFi", "Bluetooth"],
+  //   "warrantyMonths": 12,
+  //   "releaseYear": 2024,
+  //   "tags": ["smartphone", "ios"],
+  //   "image": "https://m.media-amazon.com/images/I/71v2jVh6nIL._AC_UF1000,1000_QL80_.jpg"
+  // },
 
   const filteredData = productsData.filter((product) => {
-    const filterTypes = Object.keys(filters);
-
-    for (let filterType of filterTypes) {
-      const filterObj = filters[filterType];
-      const objectKeys = Object.keys(filterObj);
-
-      for (let objectKey of objectKeys) {
-        if (filterObj[objectKey] === true) {
-          if (product[filterType] !== objectKey) {
-            return false;
-          }
-        }
-      }
+    for (let filterType in filters) {
+      // filterType = category
+      const filterValues = filters[filterType];
+      if (filterValues.length === 0) continue;
+      const productValue = product[filterType]?.toString().toLowerCase();
+      const matches = filterValues.some(
+        (val) => val.toLowerCase() === productValue,
+      );
+      // for (let type in filterType) { // type = mobilephone
+      //   product[filterType] === type
+      // }
+      if (!matches) return false;
     }
-
     return true;
   });
 
-  // const totalItems = filteredData.length;
-  const totalItems = productsData.length;
+  const totalItems = filteredData.length;
+  // const totalItems = productsData.length;
   const itemsPerPage = 10;
 
   const numberOfPages = Math.ceil(totalItems / itemsPerPage);
@@ -65,8 +108,8 @@ const Cards = ({ cols, filters }) => {
   //   },
   // }
 
-  // const visibleItems = filteredData.slice(startIndex, endIndex);
-  const visibleItems = productsData.slice(startIndex, endIndex);
+  const visibleItems = filteredData.slice(startIndex, endIndex);
+  // const visibleItems = productsData.slice(startIndex, endIndex);
 
   const zoomCard = (item) => {
     console.log(item.id);
