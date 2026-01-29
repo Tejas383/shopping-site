@@ -17,11 +17,6 @@ const Cards = ({ cols, filters }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCard, setSelectedCard] = useState(null);
 
-  // filters = {
-  //   category: ["mobilephone", "accessories", "tv"],
-  //   brand: ["apple", "samsung", "lg"]
-  // }
-
   // product = {
   //   "id": "p001",
   //   "name": "iPhone 15",
@@ -46,16 +41,50 @@ const Cards = ({ cols, filters }) => {
   // },
 
   const filteredData = productsData.filter((product) => {
+    // filters = {
+    //   category: ["mobilephone", "accessories", "tv"],
+    //   brand: ["apple", "samsung", "lg"],
+    //   connectivity: ["wifi", "bluetooth"],
+    // }
+
     for (let filterType in filters) {
-      // filterType = category
+      // filterType: string
+      // = "category"
+
       const filterValues = filters[filterType];
+      // array
+      // = ["mobilephone", "accessories", "tv"]
+
+      // if no filters of that particular filterType exist
       if (filterValues.length === 0) continue;
-      const productValue = product[filterType]?.toString().toLowerCase();
-      const matches = filterValues.some(
-        (val) => val.toLowerCase() === productValue,
-      );
+
+      let productField = product[filterType];
+      // = product["category"]
+      // = "Mobile Phone"
+
+      let matches = false;
+
+      if (Array.isArray(productField)) {
+        // productField is an array
+        // eg:
+        // productField = ["5G", "WiFi", "Bluetooth"]
+
+        matches = filterValues.some((val) =>
+          productField.some((pVal) => pVal.toLowerCase() === val.toLowerCase()),
+        );
+      } else {
+        // productField is a single value
+        // eg:
+        // productField = "Mobile Phone"
+
+        matches = filterValues.some(
+          (val) => val.toLowerCase() === productField?.toString().toLowerCase(),
+        );
+      }
+
       if (!matches) return false;
     }
+
     return true;
   });
 

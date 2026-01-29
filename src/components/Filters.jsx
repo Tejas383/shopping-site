@@ -8,7 +8,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 import FilterType from "./FilterType.jsx";
 
@@ -164,24 +163,24 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
               filterData={colors}
               handleCheckboxChange={handleCheckboxChange}
             />
-            {/* <FilterType
+            <FilterType
               type="connectivity"
               label="Connectivity"
               filterData={connectivity}
               handleCheckboxChange={handleCheckboxChange}
-            /> */}
+            />
             <FilterType
               type="releaseYear"
               label="Release Year"
               filterData={releaseYear}
               handleCheckboxChange={handleCheckboxChange}
             />
-            {/* <FilterType
+            <FilterType
               type="tags"
               label="Tags"
               filterData={tags}
               handleCheckboxChange={handleCheckboxChange}
-            /> */}
+            />
           </form>
         </Form>
       </div>
