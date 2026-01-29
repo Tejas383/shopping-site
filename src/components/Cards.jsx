@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import productsData from "../data/products.json";
 import CardComponent from "./CardComponent.jsx";
 import {
@@ -17,32 +17,6 @@ const Cards = ({ cols, filters }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCard, setSelectedCard] = useState(null);
 
-  // useEffect(() => {
-  //   setCurrentPage(1);
-  // }, [filters]);
-
-  // const filteredData = productsData.filter((product) => {
-  //   const filterTypes = Object.keys(filters);
-
-  //   for (let filterType of filterTypes) {
-  //     const filterObj = filters[filterType];
-  //     const objectKeys = Object.keys(filterObj);
-
-  //     for (let objectKey of objectKeys) {
-  //       if (filterObj[objectKey] === true) {
-  //         if (product[filterType] !== objectKey) {
-  //           return false;
-  //         }
-  //       }
-  //     }
-  //   }
-
-  //   return true;
-  // });
-
-  // filters = {
-  //   category: ["mobilephone", "accessories", "tv"]
-  // }
   // product = {
   //   "id": "p001",
   //   "name": "iPhone 15",
@@ -67,24 +41,54 @@ const Cards = ({ cols, filters }) => {
   // },
 
   const filteredData = productsData.filter((product) => {
+    // filters = {
+    //   category: ["mobilephone", "accessories", "tv"],
+    //   brand: ["apple", "samsung", "lg"],
+    //   connectivity: ["wifi", "bluetooth"],
+    // }
+
     for (let filterType in filters) {
-      // filterType = category
+      // filterType: string
+      // = "category"
+
       const filterValues = filters[filterType];
+      // array
+      // = ["mobilephone", "accessories", "tv"]
+
+      // if no filters of that particular filterType exist
       if (filterValues.length === 0) continue;
-      const productValue = product[filterType]?.toString().toLowerCase();
-      const matches = filterValues.some(
-        (val) => val.toLowerCase() === productValue,
-      );
-      // for (let type in filterType) { // type = mobilephone
-      //   product[filterType] === type
-      // }
+
+      let productField = product[filterType];
+      // = product["category"]
+      // = "Mobile Phone"
+
+      let matches = false;
+
+      if (Array.isArray(productField)) {
+        // productField is an array
+        // eg:
+        // productField = ["5G", "WiFi", "Bluetooth"]
+
+        matches = filterValues.some((val) =>
+          productField.some((pVal) => pVal.toLowerCase() === val.toLowerCase()),
+        );
+      } else {
+        // productField is a single value
+        // eg:
+        // productField = "Mobile Phone"
+
+        matches = filterValues.some(
+          (val) => val.toLowerCase() === productField?.toString().toLowerCase(),
+        );
+      }
+
       if (!matches) return false;
     }
+
     return true;
   });
 
   const totalItems = filteredData.length;
-  // const totalItems = productsData.length;
   const itemsPerPage = 10;
 
   const numberOfPages = Math.ceil(totalItems / itemsPerPage);
@@ -92,24 +96,7 @@ const Cards = ({ cols, filters }) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  // filters = {
-  //   Category: {
-  //     "Mobile Phone": false,
-  //     Laptop: false,
-  //     HeadPhones: false,
-  //     Tablet: false,
-  //     "Smart Home": false,
-  //     Wearable: false,
-  //     Accessories: false,
-  //     Storage: false,
-  //     Camera: false,
-  //     Television: false,
-  //     "Home Appliance": false,
-  //   },
-  // }
-
   const visibleItems = filteredData.slice(startIndex, endIndex);
-  // const visibleItems = productsData.slice(startIndex, endIndex);
 
   const zoomCard = (item) => {
     console.log(item.id);

@@ -1,5 +1,4 @@
 import React from "react";
-import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -8,14 +7,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+
+import FilterType from "./FilterType.jsx";
 
 const Filters = ({ cols, setCols, filters, setFilters }) => {
   console.log(filters);
 
   const applyFilters = (e) => {
-    // console.log(categoryList);
     console.log(filters);
     e.preventDefault();
   };
@@ -32,6 +31,83 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
     "Camera",
     "Television",
     "Home Appliance",
+  ];
+
+  const brands = [
+    "Apple",
+    "Samsung",
+    "Google",
+    "OnePlus",
+    "Xiaomi",
+    "Dell",
+    "HP",
+    "Lenovo",
+    "Asus",
+    "Sony",
+    "Bose",
+    "JBL",
+    "Nothing",
+    "Amazon",
+    "Logitech",
+    "Keychron",
+    "SanDisk",
+    "Canon",
+    "LG",
+    "Dyson",
+    "Philips",
+  ];
+
+  const colors = [
+    "Pink",
+    "Black",
+    "Silver",
+    "Blue",
+    "Yellow",
+    "White",
+    "Green",
+    "Gray",
+    "Transparent",
+    "Purple",
+    "Graphite",
+    "Midnight",
+  ];
+
+  const connectivity = ["5G", "WiFi", "Bluetooth", "USB-C", "USB-A"];
+
+  const releaseYear = ["2024", "2023", "2022", "2021", "2020"];
+
+  const tags = [
+    "smartphone",
+    "ios",
+    "android",
+    "flagship",
+    "camera",
+    "fast-charge",
+    "budget",
+    "ultrabook",
+    "windows",
+    "midrange",
+    "business",
+    "gaming",
+    "noise-cancelling",
+    "premium",
+    "true-wireless",
+    "design",
+    "tablet",
+    "android-tablet",
+    "voice-assistant",
+    "smartwatch",
+    "mouse",
+    "keyboard",
+    "mechanical",
+    "portable-ssd",
+    "usb",
+    "mirrorless",
+    "vlogging",
+    "smart-tv",
+    "oled",
+    "vacuum",
+    "kitchen",
   ];
 
   const handleCheckboxChange = (filterType, value, checked) => {
@@ -69,39 +145,42 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
 
         <Form>
           <form onSubmit={applyFilters} className="w-2/3 space-y-2 w-full py-3">
-            <div className="text-center ">
-              {/* <Button type="submit" variant="outline" className="">
-                Apply
-              </Button> */}
-            </div>
-
-            <div className="px-4 p-3 border rounded-xl shadow-sm bg-gradient-to-b from-blue-50 to-purple-50">
-              <Label htmlFor="categories" className="font-semibold underline">
-                Categories
-              </Label>
-              {categories.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 pt-2 hover:bg-gray-100"
-                >
-                  <Input
-                    type="checkbox"
-                    id={item.toLowerCase().replace(/\s+/g, "-")}
-                    className="h-4 w-4"
-                    checked={filters.category.includes(item)}
-                    onChange={(e) =>
-                      handleCheckboxChange("category", item, e.target.checked)
-                    }
-                  />
-                  <Label
-                    htmlFor={item.toLowerCase().replace(/\s+/g, "-")}
-                    className="text-sm cursor-pointer select-none"
-                  >
-                    {item}
-                  </Label>
-                </div>
-              ))}
-            </div>
+            <FilterType
+              type="brand"
+              label="Brands"
+              filterData={brands}
+              handleCheckboxChange={handleCheckboxChange}
+            />
+            <FilterType
+              type="category"
+              label="Categories"
+              filterData={categories}
+              handleCheckboxChange={handleCheckboxChange}
+            />
+            <FilterType
+              type="color"
+              label="Colors"
+              filterData={colors}
+              handleCheckboxChange={handleCheckboxChange}
+            />
+            <FilterType
+              type="connectivity"
+              label="Connectivity"
+              filterData={connectivity}
+              handleCheckboxChange={handleCheckboxChange}
+            />
+            <FilterType
+              type="releaseYear"
+              label="Release Year"
+              filterData={releaseYear}
+              handleCheckboxChange={handleCheckboxChange}
+            />
+            <FilterType
+              type="tags"
+              label="Tags"
+              filterData={tags}
+              handleCheckboxChange={handleCheckboxChange}
+            />
           </form>
         </Form>
       </div>
