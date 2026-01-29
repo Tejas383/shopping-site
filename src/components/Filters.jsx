@@ -59,6 +59,21 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
     "Philips",
   ];
 
+  const colors = [
+    "Pink",
+    "Black",
+    "Silver",
+    "Blue",
+    "Yellow",
+    "White",
+    "Green",
+    "Gray",
+    "Transparent",
+    "Purple",
+    "Graphite",
+    "Midnight",
+  ];
+
   const handleCheckboxChange = (filterType, value, checked) => {
     setFilters((prev) => {
       const current = prev[filterType] || [];
@@ -100,12 +115,18 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
               filterData={categories}
               handleCheckboxChange={handleCheckboxChange}
             />
-            {/* <FilterType
-              type="brands"
+            <FilterType
+              type="brand"
               label="Brands"
               filterData={brands}
               handleCheckboxChange={handleCheckboxChange}
-            /> */}
+            />
+            <FilterType
+              type="color"
+              label="Colors"
+              filterData={colors}
+              handleCheckboxChange={handleCheckboxChange}
+            />
           </form>
         </Form>
       </div>

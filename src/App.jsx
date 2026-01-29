@@ -117,6 +117,7 @@ const App = () => {
   const [filters, setFilters] = useState({
     category: [],
     brand: [],
+
   })
 
   return (
