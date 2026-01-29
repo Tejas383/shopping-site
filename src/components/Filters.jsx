@@ -16,7 +16,6 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
   console.log(filters);
 
   const applyFilters = (e) => {
-    // console.log(categoryList);
     console.log(filters);
     e.preventDefault();
   };
@@ -74,6 +73,44 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
     "Midnight",
   ];
 
+  const connectivity = ["5G", "WiFi", "Bluetooth", "USB-C", "USB-A"];
+
+  const releaseYear = ["2024", "2023", "2022", "2021", "2020"];
+
+  const tags = [
+    "smartphone",
+    "ios",
+    "android",
+    "flagship",
+    "camera",
+    "fast-charge",
+    "budget",
+    "ultrabook",
+    "windows",
+    "midrange",
+    "business",
+    "gaming",
+    "noise-cancelling",
+    "premium",
+    "true-wireless",
+    "design",
+    "tablet",
+    "android-tablet",
+    "voice-assistant",
+    "smartwatch",
+    "mouse",
+    "keyboard",
+    "mechanical",
+    "portable-ssd",
+    "usb",
+    "mirrorless",
+    "vlogging",
+    "smart-tv",
+    "oled",
+    "vacuum",
+    "kitchen",
+  ];
+
   const handleCheckboxChange = (filterType, value, checked) => {
     setFilters((prev) => {
       const current = prev[filterType] || [];
@@ -110,15 +147,15 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
         <Form>
           <form onSubmit={applyFilters} className="w-2/3 space-y-2 w-full py-3">
             <FilterType
-              type="category"
-              label="Categories"
-              filterData={categories}
-              handleCheckboxChange={handleCheckboxChange}
-            />
-            <FilterType
               type="brand"
               label="Brands"
               filterData={brands}
+              handleCheckboxChange={handleCheckboxChange}
+            />
+            <FilterType
+              type="category"
+              label="Categories"
+              filterData={categories}
               handleCheckboxChange={handleCheckboxChange}
             />
             <FilterType
@@ -127,6 +164,24 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
               filterData={colors}
               handleCheckboxChange={handleCheckboxChange}
             />
+            {/* <FilterType
+              type="connectivity"
+              label="Connectivity"
+              filterData={connectivity}
+              handleCheckboxChange={handleCheckboxChange}
+            /> */}
+            <FilterType
+              type="releaseYear"
+              label="Release Year"
+              filterData={releaseYear}
+              handleCheckboxChange={handleCheckboxChange}
+            />
+            {/* <FilterType
+              type="tags"
+              label="Tags"
+              filterData={tags}
+              handleCheckboxChange={handleCheckboxChange}
+            /> */}
           </form>
         </Form>
       </div>

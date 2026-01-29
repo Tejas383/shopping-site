@@ -114,11 +114,7 @@ const App = () => {
   //   // },
   // });
 
-  const [filters, setFilters] = useState({
-    category: [],
-    brand: [],
-
-  })
+  const [filters, setFilters] = useState({})
 
   return (
     <div className="bg-blue-50">
