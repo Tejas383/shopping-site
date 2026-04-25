@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import productsData from "../data/products.json";
+import React, { useEffect, useState } from "react";
 import CardComponent from "./CardComponent.jsx";
 import {
   Pagination,
@@ -16,6 +15,18 @@ import { AnimatePresence, motion } from "framer-motion";
 const Cards = ({ cols, filters }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCard, setSelectedCard] = useState(null);
+
+  const [productsData, setProductsData] = useState([]);
+
+  const getProducts = () => {
+    fetch("/product")
+      .then((res) => res.json())
+      .then((json) => setProductsData(json));
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   // product = {
   //   "id": "p001",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Cards from "./components/Cards.jsx";
 import Filters from "./components/Filters.jsx";
 
