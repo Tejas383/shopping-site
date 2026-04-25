@@ -3,9 +3,7 @@
 import { useState } from "react";
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -38,44 +36,10 @@ import Stack from "@mui/material/Stack";
 //     "image": "https://example.com/images/iphone-15-black.jpg"
 // }
 
-const CardComponent = ({ item, cols, onClick }) => {
-  const {
-    id,
-    name,
-    category,
-    brand,
-    price,
-    currency,
-    rating,
-    reviewsCount,
-    inStock,
-    color,
-    colorOptions,
-    storage,
-    ram,
-    screenSize,
-    battery,
-    connectivity,
-    warrantyMonths,
-    releaseYear,
-    tags,
-    image,
-  } = item;
+const CardComponent = ({ item, onClick }) => {
+  const { name, brand, price, rating, colorOptions, image } = item;
 
   const [selectedColor, setSelectedColor] = useState("");
-
-  const numCols = (cols) => {
-    switch (cols) {
-      case 1:
-        return 4;
-      case 2:
-        return 2;
-      case 3:
-        return 2;
-      case 4:
-        return 1;
-    }
-  };
 
   return (
     <Card
@@ -89,10 +53,12 @@ const CardComponent = ({ item, cols, onClick }) => {
       <CardContent className="grid gap-3">
         <div className="flex justify-between">
           <span>
-            <span className="font-semibold">Brand: </span>{brand}
+            <span className="font-semibold">Brand: </span>
+            {brand}
           </span>
           <span>
-            <span className="font-semibold">Price: </span>{price}
+            <span className="font-semibold">Price: </span>
+            {price}
           </span>
         </div>
         <div className="flex items-center justify-center">
