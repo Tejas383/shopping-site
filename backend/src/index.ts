@@ -1,6 +1,5 @@
 import express from "express";
 import type {Express, Request, Response} from "express";
-import { userRouter } from "./routes/userRoutes";
 import { productRouter } from "./routes/productsRoute";
 
 const app : Express = express();
@@ -11,7 +10,6 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.use(express.json());
-app.use("/users", userRouter);
 app.use("/product", productRouter);
 
 app.listen(PORT, () => {

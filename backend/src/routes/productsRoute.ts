@@ -6,3 +6,5 @@ export const productRouter = Router();
 productRouter.get('/', (req: Request, res: Response) => {
     res.status(200).json(products);
 });
+
+// #TODO: /:id

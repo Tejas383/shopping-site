@@ -16,9 +16,11 @@ const App = () => {
       </h1>
 
       <Routes>
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route
           path="/"
           element={
+            // #TODO: convert to reusable component
             <div className="flex">
               <Filters
                 cols={cols}
@@ -30,8 +32,6 @@ const App = () => {
             </div>
           }
         />
-
-        <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
     </div>
   );

@@ -8,7 +8,8 @@ const ProductPage = () => {
   const [selectedColor, setSelectedColor] = useState("");
 
   useEffect(() => {
-    fetch("/product")
+    // #TODO: convert to async/await
+    fetch("/api/product")
       .then((res) => res.json())
       .then((data) => {
         const found = data.find((p) => p.id === id);
@@ -37,43 +38,43 @@ const ProductPage = () => {
         <div className="flex flex-col gap-3">
           <h1 className="text-3xl font-bold">{product.name}</h1>
 
-          <p className="text-xl text-blue-600 font-semibold">
+          <span className="text-xl text-blue-600 font-semibold">
             ₹{product.price}
-          </p>
+          </span>
 
-          <p className="text-yellow-500 font-medium">
+          <span className="text-yellow-500 font-medium">
             ⭐ {product.rating} ({product.reviewsCount} reviews)
-          </p>
+          </span>
 
-          <p className={product.inStock ? "text-green-600" : "text-red-500"}>
+          <span className={product.inStock ? "text-green-600" : "text-red-500"}>
             {product.inStock ? "In Stock" : "Out of Stock"}
-          </p>
+          </span>
 
-          <div className="mt-3 text-gray-700">
-            <p>
+          <div className="flex flex-col mt-3 text-gray-700">
+            <span>
               <strong>Brand:</strong> {product.brand}
-            </p>
-            <p>
+            </span>
+            <span>
               <strong>Category:</strong> {product.category}
-            </p>
-            <p>
+            </span>
+            <span>
               <strong>RAM:</strong> {product.ram}
-            </p>
-            <p>
+            </span>
+            <span>
               <strong>Storage:</strong> {product.storage}
-            </p>
-            <p>
+            </span>
+            <span>
               <strong>Battery:</strong> {product.battery}
-            </p>
-            <p>
+            </span>
+            <span>
               <strong>Screen:</strong> {product.screenSize}"
-            </p>
-            <p>
+            </span>
+            <span>
               <strong>Warranty:</strong> {product.warrantyMonths} months
-            </p>
-            <p>
+            </span>
+            <span>
               <strong>Release Year:</strong> {product.releaseYear}
-            </p>
+            </span>
           </div>
 
           <span className="">
@@ -83,6 +84,7 @@ const ProductPage = () => {
               <span key={color} className="">
                 <Button
                   onClick={(e) => {
+                    // #TODO convert inline fn to internal functions
                     e.stopPropagation();
                     setSelectedColor(color);
                   }}

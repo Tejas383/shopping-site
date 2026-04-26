@@ -20,7 +20,7 @@ const Cards = ({ cols, filters }) => {
   const navigate = useNavigate();
 
   const getProducts = () => {
-    fetch("/product")
+    fetch("/api/product")
       .then((res) => res.json())
       .then((json) => setProductsData(json));
   };
