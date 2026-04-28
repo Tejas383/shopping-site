@@ -3,19 +3,32 @@ import { useParams } from "react-router-dom";
 import { Button } from "./ui/button";
 
 const ProductPage = () => {
+  // implement the new route here
+  // http://localhost:3000/product/p002
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedColor, setSelectedColor] = useState("");
 
   useEffect(() => {
-    // #TODO: convert to async/await
-    fetch("/api/product")
-      .then((res) => res.json())
-      .then((data) => {
-        const found = data.find((p) => p.id === id);
-        setProduct(found);
-      });
+    const fetchProduct = async () => {
+      try {
+        const res = await fetch(`/api/product/${id}`);
+        const data = await res.json();
+
+        // const found = data.find((p) => p.id === id);
+        setProduct(data);
+      } catch (err) {
+        console.error("Error fetching product:", err);
+      }
+    };
+
+    fetchProduct();
   }, [id]);
+
+  const handleColorClick = (e, color) => {
+    e.stopPropagation();
+    setSelectedColor(color);
+  };
 
   if (!product) return <div className="bg-red-200">Loading....</div>;
 
@@ -85,8 +98,7 @@ const ProductPage = () => {
                 <Button
                   onClick={(e) => {
                     // #TODO convert inline fn to internal functions
-                    e.stopPropagation();
-                    setSelectedColor(color);
+                    handleColorClick(e, color);
                   }}
                   className={`rounded-full cursor-pointer border-2 ${
                     selectedColor === color ? "border-black" : "border-gray-300"

@@ -10,6 +10,8 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.use(express.json());
+
+// importing the routes
 app.use("/product", productRouter);
 
 app.listen(PORT, () => {

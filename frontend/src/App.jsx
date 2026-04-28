@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Cards from "./components/Cards.jsx";
-import Filters from "./components/Filters.jsx";
 import ProductPage from "./components/ProductPage.jsx";
+import ShopLayout from "./components/ShopLayout.jsx";
 
 const App = () => {
   const [cols, setCols] = useState(3);
@@ -21,15 +20,12 @@ const App = () => {
           path="/"
           element={
             // #TODO: convert to reusable component
-            <div className="flex">
-              <Filters
-                cols={cols}
-                setCols={setCols}
-                filters={filters}
-                setFilters={setFilters}
-              />
-              <Cards cols={cols} filters={filters} />
-            </div>
+            <ShopLayout
+              cols={cols}
+              setCols={setCols}
+              filters={filters}
+              setFilters={setFilters}
+            />
           }
         />
       </Routes>
