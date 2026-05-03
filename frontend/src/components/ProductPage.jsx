@@ -2,21 +2,21 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "./ui/button";
 
+// add validation if product not found, display msg, using http status
+
 const ProductPage = () => {
-  // implement the new route here
-  // http://localhost:3000/product/p002
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedColor, setSelectedColor] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const res = await fetch(`/api/product/${id}`);
         const data = await res.json();
-
-        // const found = data.find((p) => p.id === id);
-        setProduct(data);
+        if (res.status === 404) setMessage("Product not found");
+        else setProduct(data);
       } catch (err) {
         console.error("Error fetching product:", err);
       }
@@ -30,7 +30,7 @@ const ProductPage = () => {
     setSelectedColor(color);
   };
 
-  if (!product) return <div className="bg-red-200">Loading....</div>;
+  if (!product) return <div className="bg-red-200">{message}</div>;
 
   return (
     <div className="p-6 bg-blue-50 min-h-screen">

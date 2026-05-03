@@ -13,29 +13,6 @@ import { Button } from "@/components/ui/button";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 
-// {
-//     "id": "p001",
-//     "name": "iPhone 15",
-//     "category": "Mobile Phone",
-//     "brand": "Apple",
-//     "price": 79999,
-//     "currency": "INR",
-//     "rating": 4.6,
-//     "reviewsCount": 12450,
-//     "inStock": true,
-//     "color": "Black",
-//     "colorOptions": ["Pink", "Black", "White", "Blue"],
-//     "storage": "128GB",
-//     "ram": "6GB",
-//     "screenSize": 6.1,
-//     "battery": "3279mAh",
-//     "connectivity": ["5G", "WiFi", "Bluetooth"],
-//     "warrantyMonths": 12,
-//     "releaseYear": 2024,
-//     "tags": ["smartphone", "ios"],
-//     "image": "https://example.com/images/iphone-15-black.jpg"
-// }
-
 const CardComponent = ({ item, onClick }) => {
   const { name, brand, price, rating, colorOptions, image } = item;
 
